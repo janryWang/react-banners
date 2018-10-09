@@ -21,17 +21,20 @@ export default {
       sourcemap: true
     }
   ],
+  external: ['stream', 'crypto', 'path', 'util'],
   plugins: [
-    external(),
-    postcss({
-      modules: true
-    }),
+    external({}),
+    postcss(),
     url(),
     babel({
       exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      plugins: ['external-helpers']
     }),
     resolve(),
-    commonjs()
+    commonjs({
+      namedExports: {
+        [require.resolve('react-is')]: ['isValidElementType', 'ForwardRef']
+      }
+    })
   ]
 }

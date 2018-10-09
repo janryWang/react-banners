@@ -16,7 +16,7 @@
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "build": "rollup -c",
-    "start": "rollup -c -w",
+    "start": "concurrently \"rollup -c -w\" \"cd example && npm start\" ",
     "prepare": "npm run build",
     "predeploy": "cd example && npm install && npm run build",
     "deploy": "gh-pages -d example/build"
@@ -33,6 +33,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "concurrently": "^4.0.1",
     "cross-env": "^5.1.4",
     "eslint": "^5.0.1",
     "eslint-config-standard": "^11.0.0",
@@ -56,5 +57,10 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "react-slot-props": "^0.1.11",
+    "rebass": "^3.0.0-9",
+    "styled-components": "^4.0.0-beta.10"
+  }
 }

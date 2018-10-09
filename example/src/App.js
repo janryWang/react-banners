@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 
-import ExampleComponent from 'react-banners'
+import Banners from 'react-banners'
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <Banners>
+          <Banners.Title color="#666">这是主标题</Banners.Title>
+          <Banners.Cards>
+            <Banners.Card>这是一个卡片这是一个卡片这是一个卡片这是一个卡片这是一个卡片这是一个卡片这是一个卡片</Banners.Card>
+          </Banners.Cards>
+        </Banners>
       </div>
     )
   }
