@@ -5,7 +5,7 @@ import Banners from 'react-banners'
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div style={{overflow:'hidden'}}>
         <Banners py={80} style={{ overflow: 'hidden' }}>
           <Banners.Blocks textWidth={'40%'}>
             <Banners.Block imageAlign="right">
