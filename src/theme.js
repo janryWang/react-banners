@@ -19,5 +19,21 @@ export default {
   Text: `
   line-height: 1.7;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  `,
+  Button: `
+  transition:all .35s ease-in-out;
+  &:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(102, 102, 102, 0.25);
+  }
+  `,
+  Link: `
+  text-decoration:none;
+  cursor:pointer;
+  display:block;
+  transition:all .35s ease-in-out;
+  &:hover{
+    transform:translateY(-5px);
+  }
   `
 }

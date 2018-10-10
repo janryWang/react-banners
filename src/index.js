@@ -6,6 +6,7 @@ import { Box, Flex, Card, Block, Heading } from './shared/rebass'
 import { getWidth } from './shared/utils'
 import defaultThemes from './theme'
 import SmartContent from './components/SmartContent'
+import Button from './components/Button'
 
 class ReactBanners extends Component {
   render() {
@@ -64,6 +65,7 @@ class ReactBanners extends Component {
                           textColor={props.textColor || cardProps.textColor}
                           textWidth={props.textWidth || cardProps.textWidth}
                           imageWidth={props.imageWidth || cardProps.imageWidth}
+                          href={props.href}
                           itemSize={slot('areas.cards.elements.length')}
                           path={`areas.cards.elements[${key}].areas`}
                           slot={slot}
@@ -117,6 +119,7 @@ class ReactBanners extends Component {
                             imageWidth={
                               props.imageWidth || blockProps.imageWidth
                             }
+                            href={props.href}
                             itemSize={slot('areas.blocks.elements.length')}
                             path={`areas.blocks.elements[${key}].areas`}
                             slot={slot}
@@ -151,4 +154,8 @@ class ReactBanners extends Component {
   }
 }
 
-export default createSlotComponents(ReactBanners, BannerRelations)
+const exportComponents = createSlotComponents(ReactBanners, BannerRelations)
+
+exportComponents.Button = Button
+
+export default exportComponents

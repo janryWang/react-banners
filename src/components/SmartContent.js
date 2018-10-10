@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Box, Flex, Heading, Text, Image } from '../shared/rebass'
+import { Box, Flex, Heading, Text, Image, Link } from '../shared/rebass'
 import Spectra from 'spectra'
 
 const layoutIs = (type, contains) => {
@@ -8,7 +8,8 @@ const layoutIs = (type, contains) => {
 
 export default class SmartContent extends Component {
   static defaultProps = {
-    imageAlign: 'left'
+    imageAlign: 'left',
+    textColor: '#333'
   }
 
   getTextAlign() {
@@ -77,7 +78,7 @@ export default class SmartContent extends Component {
     return ['auto', 'auto', 'auto', textWidth]
   }
 
-  render() {
+  renderContent() {
     const { path, slot, imageAlign, textColor, imageWidth } = this.props
     const isVertical = layoutIs(imageAlign, ['top', 'bottom'])
     return (
@@ -189,5 +190,14 @@ export default class SmartContent extends Component {
           })}
       </Flex>
     )
+  }
+
+  render() {
+    const { href } = this.props
+    if (href) {
+      return <Link href={href}>{this.renderContent()}</Link>
+    } else {
+      return this.renderContent()
+    }
   }
 }
