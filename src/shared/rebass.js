@@ -3,13 +3,17 @@ import styled from 'styled-components'
 import { minWidth, maxWidth } from 'styled-system'
 import { themeable } from './theme'
 
+const themed = key => props => props.theme[key]
+
 export const Text = themeable()(Rebass.Text)
 
 export const Heading = themeable()(Rebass.Heading)
 
 export const Flex = themeable()(Rebass.Flex)
 
-export const Box = themeable()(Rebass.Box)
+const _Box = themeable()(Rebass.Box)
+
+export const Box = themeable()(styled(_Box)(minWidth, maxWidth))
 
 export const Button = themeable()(Rebass.Button)
 
@@ -17,14 +21,10 @@ export const Link = themeable()(Rebass.Link)
 
 export const Image = themeable()(Rebass.Image)
 
-export const Card = themeable()(Rebass.Card)
+const _Card = themeable()(Rebass.Card)
 
-export const ComplexCard = themeable()(styled(Card)(minWidth, maxWidth))
+export const Card = themeable()(styled(_Card)(minWidth, maxWidth))
 
-// const WrapperRebass = {}
-
-// Object.keys(Rebass).forEach(key => {
-//   WrapperRebass[key] = themeable()(Rebass[key])
-// })
-
-// module.exports = WrapperRebass
+export const Block = themeable()(
+  styled(Rebass.Box)(minWidth, maxWidth, themed('Block'))
+)

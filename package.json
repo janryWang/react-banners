@@ -61,6 +61,7 @@
   "dependencies": {
     "react-slot-props": "^0.1.11",
     "rebass": "^3.0.0-9",
+    "spectra": "^0.2.3",
     "styled-components": "^4.0.0-beta.10"
   }
 }

@@ -1,8 +1,6 @@
-import { minWidth, maxWidth } from 'styled-system'
-
 export default {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  breakpoints: ['40em', '52em', '64em'],
+  breakpoints: ['40em', '52em', '60em', '64em'],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
   Card: `
   box-shadow: rgba(31,56,88,0.15) 0px 2px 10px;
@@ -10,5 +8,16 @@ export default {
   border-radius: 6px;
   padding:30px;
   margin:20px;
+  `,
+  Block: `
+  margin:0 20px;
+  `,
+  Heading: `
+  line-height:1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  `,
+  Text: `
+  line-height: 1.7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   `
 }

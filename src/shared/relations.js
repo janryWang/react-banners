@@ -2,29 +2,37 @@ export default [
   {
     type: 'ReactBanners',
     root: true,
-    areas: ['Title', 'Cards', 'Blocks', 'Texture', 'Background']
+    areas: ['Title', 'Cards', 'Blocks', 'Texture']
   },
   {
     type: 'Title'
+  },
+  {
+    type: 'SubTitle'
+  },
+  {
+    type: 'Description'
+  },
+  {
+    type: 'Image'
   },
   {
     type: 'Cards',
     elements: ['Card']
   },
   {
-    type: 'Card'
-  },
-  {
-    type: 'Block'
-  },
-  {
     type: 'Blocks',
     elements: ['Block']
   },
   {
-    type: 'Texture'
+    type: 'Card',
+    areas: ['Title', 'SubTitle', 'Description', 'Image']
   },
   {
-    type: 'Background'
+    type: 'Block',
+    areas: ['Title', 'SubTitle', 'Description', 'Image']
+  },
+  {
+    type: 'Texture'
   }
 ]
