@@ -11,6 +11,23 @@
 
 ![](https://img.alicdn.com/tfs/TB13Ruig7PoK1RjSZKbXXX1IXXa-2880-5896.png)
 
+## Background
+
+过去，我们开发一系列的偏静态展示型页面，特别是像landing page这些页面，页面中的样式每次都得手撸一遍，非常浪费时间，但是，本人经过大量的调研dribbble上landing page的设计模式，摸索出了现阶段比较常用的设计形态，比如：
+
+- 单横幅区块
+- 多横幅区块
+- 单横幅卡片
+- 多横幅卡片
+
+区块与卡片的差别就是一个没有阴影，一个有阴影。
+
+同时，对于图文布局，往往都是图片围绕着文本上下左右切换，还有就是，对于小屏终端而言，一般都是图片在上或者在下。
+
+还有，每张横幅，都可以加一个纹理，它是基于横幅做绝对定位的。
+
+所以，总结出来这些规律，就可以很快的做出一个场景化的组件，可以快速解决横幅的各种设计需求。
+
 ## Install
 
 ```bash
@@ -80,7 +97,7 @@ class Example extends Component {
 | -------------- | ------ | -------------------------- |
 | rebass基础属性 | any    | https://rebassjs.org/props |
 | style属性      | object | `{color:"#eee"}`           |
-
+| children            | `<Blocks>/<Cards>/<Texture>`              |                            |
 
 
 `<Banners.Blocks>`
