@@ -28,7 +28,7 @@ export default {
   }
   `,
   Link: `
-  text-decoration:none;
+  text-decoration:none !important;
   cursor:pointer;
   display:block;
   transition:all .35s ease-in-out;
