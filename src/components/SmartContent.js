@@ -193,9 +193,9 @@ export default class SmartContent extends Component {
   }
 
   render() {
-    const { href } = this.props
+    const { href,target } = this.props
     if (href) {
-      return <Link href={href}>{this.renderContent()}</Link>
+      return <Link href={href} target={target}>{this.renderContent()}</Link>
     } else {
       return this.renderContent()
     }
