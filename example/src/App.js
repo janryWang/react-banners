@@ -25,6 +25,30 @@ export default class App extends Component {
               />
             </Banners.Block>
           </Banners.Blocks>
+          <Banners.Box>
+            Hello world
+          </Banners.Box>
+          <Banners.Blocks textWidth={'40%'}>
+            <Banners.Block imageAlign="right">
+              <Banners.Title>这是主标题这是主标题</Banners.Title>
+              <Banners.SubTitle>这是副标题这是副标题</Banners.SubTitle>
+              <Banners.Description my={30}>
+                <Banners.Button color="rgb(128, 111, 193)">
+                  快速开始
+                </Banners.Button>
+                <Banners.Button color="rgb(128, 111, 193)" ghost>
+                  查看文档
+                </Banners.Button>
+              </Banners.Description>
+              <Banners.Image
+                width={'33.5%'}
+                src="//img.alicdn.com/tfs/TB1nchIg4jaK1RjSZKzXXXVwXXa-390-419.svg"
+              />
+            </Banners.Block>
+          </Banners.Blocks>
+          <Banners.Box>
+            Hello world
+          </Banners.Box>
           <Banners.Texture
             style={{
               width: '100%',

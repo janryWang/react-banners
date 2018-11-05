@@ -29,108 +29,125 @@ class ReactBanners extends Component {
               </Flex>
             )
           })}
-          {slot.has('areas.cards.elements') &&
-            slot.render('areas.cards', (render, cardProps) => {
-              return (
-                <Flex
-                  flexWrap='wrap'
-                  style={{ zIndex: 1 }}
-                  justifyContent='space-around'
-                  {...cardProps}
-                >
-                  {slot.render('areas.cards.elements', (render, props, key) => {
-                    return (
-                      <Card
-                        minWidth={[
-                          'calc(100% - 90px)',
-                          'calc(100% - 110px)',
-                          'calc(100% - 110px)',
-                          getWidth(
-                            slot('areas.cards.elements.length'),
-                            20,
-                            30,
-                            'card'
-                          )
-                        ]}
-                        maxWidth={getWidth(
-                          slot('areas.cards.elements.length'),
-                          20,
-                          30,
-                          'card'
-                        )}
-                        {...props}
-                      >
-                        <SmartContent
-                          imageAlign={props.imageAlign || cardProps.imageAlign}
-                          textColor={props.textColor || cardProps.textColor}
-                          textWidth={props.textWidth || cardProps.textWidth}
-                          imageWidth={props.imageWidth || cardProps.imageWidth}
-                          href={props.href}
-                          itemSize={slot('areas.cards.elements.length')}
-                          path={`areas.cards.elements[${key}].areas`}
-                          slot={slot}
-                        />
-                      </Card>
-                    )
-                  })}
-                </Flex>
-              )
-            })}
-          {slot.has('areas.blocks.elements') &&
-            slot.render('areas.blocks', (render, blockProps, key) => {
-              return (
-                <Flex
-                  flexWrap='wrap'
-                  style={{ zIndex: 1 }}
-                  justifyContent='space-around'
-                  px={[0, 0, 0, 20]}
-                  {...blockProps}
-                >
-                  {slot.render(
-                    'areas.blocks.elements',
-                    (render, props, key) => {
-                      return (
-                        <Block
-                          minWidth={[
-                            'calc(100% - 90px)',
-                            'calc(100% - 110px)',
-                            'calc(100% - 110px)',
-                            getWidth(
-                              slot('areas.blocks.elements.length'),
+          {slot.render('elements', (render, props, type, key) => {
+            const path = `elements[${key}]`
+            switch (type) {
+              case 'Cards':
+                const cardProps = props
+                return (
+                  <Flex
+                    flexWrap='wrap'
+                    style={{ zIndex: 1 }}
+                    justifyContent='space-around'
+                    {...cardProps}
+                  >
+                    {slot.render(
+                      `${path}.elements`,
+                      (render, props, type, key) => {
+                        return (
+                          <Card
+                            minWidth={[
+                              'calc(100% - 90px)',
+                              'calc(100% - 110px)',
+                              'calc(100% - 110px)',
+                              getWidth(
+                                slot(`${path}.elements.length`),
+                                20,
+                                30,
+                                'card'
+                              )
+                            ]}
+                            maxWidth={getWidth(
+                              slot(`${path}.elements.length`),
+                              20,
+                              30,
+                              'card'
+                            )}
+                            {...props}
+                          >
+                            <SmartContent
+                              imageAlign={
+                                props.imageAlign || cardProps.imageAlign
+                              }
+                              textColor={props.textColor || cardProps.textColor}
+                              textWidth={props.textWidth || cardProps.textWidth}
+                              imageWidth={
+                                props.imageWidth || cardProps.imageWidth
+                              }
+                              href={props.href}
+                              itemSize={slot(`${path}.elements.length`)}
+                              path={`${path}.elements[${key}].areas`}
+                              slot={slot}
+                            />
+                          </Card>
+                        )
+                      }
+                    )}
+                  </Flex>
+                )
+              case 'Blocks':
+                const blockProps = props
+                return (
+                  <Flex
+                    flexWrap='wrap'
+                    style={{ zIndex: 1 }}
+                    justifyContent='space-around'
+                    px={[0, 0, 0, 20]}
+                    {...blockProps}
+                  >
+                    {slot.render(
+                      `${path}.elements`,
+                      (render, props, type, key) => {
+                        return (
+                          <Block
+                            minWidth={[
+                              'calc(100% - 90px)',
+                              'calc(100% - 110px)',
+                              'calc(100% - 110px)',
+                              getWidth(
+                                slot(`${path}.elements.length`),
+                                20,
+                                0,
+                                'block'
+                              )
+                            ]}
+                            maxWidth={getWidth(
+                              slot(`${path}.elements.length`),
                               20,
                               0,
                               'block'
-                            )
-                          ]}
-                          maxWidth={getWidth(
-                            slot('areas.blocks.elements.length'),
-                            20,
-                            0,
-                            'block'
-                          )}
-                          {...props}
-                        >
-                          <SmartContent
-                            imageAlign={
-                              props.imageAlign || blockProps.imageAlign
-                            }
-                            textColor={props.textColor || blockProps.textColor}
-                            textWidth={props.textWidth || blockProps.textWidth}
-                            imageWidth={
-                              props.imageWidth || blockProps.imageWidth
-                            }
-                            href={props.href}
-                            itemSize={slot('areas.blocks.elements.length')}
-                            path={`areas.blocks.elements[${key}].areas`}
-                            slot={slot}
-                          />
-                        </Block>
-                      )
-                    }
-                  )}
-                </Flex>
-              )
-            })}
+                            )}
+                            {...props}
+                          >
+                            <SmartContent
+                              imageAlign={
+                                props.imageAlign || blockProps.imageAlign
+                              }
+                              textColor={
+                                props.textColor || blockProps.textColor
+                              }
+                              textWidth={
+                                props.textWidth || blockProps.textWidth
+                              }
+                              imageWidth={
+                                props.imageWidth || blockProps.imageWidth
+                              }
+                              href={props.href}
+                              itemSize={slot(`${path}.elements.length`)}
+                              path={`${path}.elements[${key}].areas`}
+                              slot={slot}
+                            />
+                          </Block>
+                        )
+                      }
+                    )}
+                  </Flex>
+                )
+              case 'Box':
+                return <Box {...props}>{render()}</Box>
+            }
+          })}
+
           {slot.render('areas.texture', (render, props) => {
             return (
               <Box

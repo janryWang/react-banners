@@ -2,13 +2,17 @@ export default [
   {
     type: 'ReactBanners',
     root: true,
-    areas: ['Title', 'Cards', 'Blocks', 'Texture']
+    elements: ['Cards', 'Blocks', 'Box'],
+    areas: ['Title', 'Texture']
   },
   {
     type: 'Title'
   },
   {
     type: 'SubTitle'
+  },
+  {
+    type: 'Box'
   },
   {
     type: 'Description'
