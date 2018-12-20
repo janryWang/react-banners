@@ -13,7 +13,7 @@ export default class extends Component {
         border={ghost ? `1px solid ${_color}` : 'none'}
         px={30}
         mr={10}
-        css={{
+        style={{
           backgroundColor: ghost ? 'transparent' : _color,
           color: ghost ? _color : Spectra(_color).lighten(80),
           cursor: 'pointer'

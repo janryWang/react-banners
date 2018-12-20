@@ -180,7 +180,7 @@ export default class SmartContent extends Component {
                     (props.style && props.style.width) ||
                     imageWidth
                 )}
-                css={{
+                style={{
                   flexShrink: 3
                 }}
               >
