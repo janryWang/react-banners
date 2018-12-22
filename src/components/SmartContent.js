@@ -6,6 +6,10 @@ const layoutIs = (type, contains) => {
   return contains.indexOf(type) > -1
 }
 
+const renderChild = child => {
+  return typeof child === 'function' ? child() : child
+}
+
 export default class SmartContent extends Component {
   static defaultProps = {
     imageAlign: 'left',
@@ -104,7 +108,11 @@ export default class SmartContent extends Component {
                     imageWidth
                 )}
               >
-                <Image {...props} width={'100%'} />
+                {props.children ? (
+                  renderChild(props.children)
+                ) : (
+                  <Image {...props} width={'100%'} />
+                )}
               </Box>
             )
           })}
@@ -188,7 +196,11 @@ export default class SmartContent extends Component {
                   flexShrink: 3
                 }}
               >
-                <Image {...props} width={'100%'} />
+                {props.children ? (
+                  renderChild(props.children)
+                ) : (
+                  <Image {...props} width={'100%'} />
+                )}
               </Box>
             )
           })}
