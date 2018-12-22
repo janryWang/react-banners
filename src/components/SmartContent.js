@@ -108,7 +108,11 @@ export default class SmartContent extends Component {
               </Box>
             )
           })}
-        <Box px={[0, 0, 0, isVertical ? 0 : 20]} width={this.getTextBoxWidth()}>
+        <Box
+          px={[0, 0, 0, isVertical ? 0 : 20]}
+          className='banner-text-box'
+          width={this.getTextBoxWidth()}
+        >
           {slot.render(`${path}.title`, (render, props) => {
             return (
               <Heading
@@ -193,9 +197,13 @@ export default class SmartContent extends Component {
   }
 
   render() {
-    const { href,target } = this.props
+    const { href, target } = this.props
     if (href) {
-      return <Link href={href} target={target}>{this.renderContent()}</Link>
+      return (
+        <Link href={href} target={target}>
+          {this.renderContent()}
+        </Link>
+      )
     } else {
       return this.renderContent()
     }
